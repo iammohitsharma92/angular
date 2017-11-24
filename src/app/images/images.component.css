@@ -1,0 +1,15 @@
+table{
+    width: 500px;
+    text-align:left;
+    margin: 5% 35%;
+}
+td,th{
+    padding-left: 10px;
+}
+a{
+    cursor: pointer;
+    color: blue;
+}
+.m-l-10{
+    margin-left: 10px;
+}

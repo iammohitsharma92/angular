@@ -1,0 +1,45 @@
+<div id="imagestable">
+        <table border='1' cellspacing="0">
+            <thead>
+            <tr>
+            <th>Album Id</th>
+            <th>Items</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of imageResponse | groupBy:'albumId';let i=index">
+                <td *ngIf="i<5" ><a (click)="getfiltredalbumImages(item.key);kghdksgjd=item.key">{{item.key}}</a></td>
+                <td *ngIf="i<5">{{item.value.length}}</td>
+            </tr>
+            </tbody>
+        </table>
+</div>
+
+<div style="width:900px;margin-left: 20%">
+<div id="albumdiv" style="width: 400px;border:solid black 1px;height: 400px;position: absolute;">
+<div style="text-align: center">
+    <div><span>Album ID</span><span class="m-l-10">{{AlbumId}}</span></div>
+    <div><span>Total Images:</span><span class="m-l-10">16</span></div>
+</div>
+    <div *ngFor="let image of filteredList;let i=index">
+<div style="float: left;padding: 10px;cursor: pointer" *ngIf="i<16">
+    <img src="{{image.thumbnailUrl}}" height="70" width="70" style="cursor: pointer" (click)="getimageInfo(image.id)"/>
+</div>
+</div>
+
+
+</div>
+ <div id="preview" *ngIf="imageInfo" style="width: 400px;border:solid black 1px;height: 400px;float: right">
+        <div style="text-align: center">
+                <div><span>ID</span><span class="m-l-10">{{imageInfo.id}}</span></div>
+                <div><span>Image Name:</span><span class="m-l-10">{{imageInfo.title}}</span></div>
+            </div>
+                <div>
+            <div style="float: left;padding: 10px;cursor: pointer">
+                <img src="{{imageInfo.url}}" height="320" width="380"/>
+            </div>
+            </div>
+
+</div>
+<div style="clear: both"></div>
+</div>
